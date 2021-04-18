@@ -1,0 +1,134 @@
+*, body, html, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background-image: url(../images/background_image_piano.jpg);
+    background-position: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body h1:first-of-type {
+    text-transform: capitalize;
+    text-decoration: underline;
+    font-size: 3em;
+    display: inline-block;
+    position: absolute;
+    top: 5%;
+    font-family: 'Lobster', cursive;
+}
+
+.contenedor {
+    position: relative;
+    margin: auto;
+    background: rgb(24, 20, 20);
+    width: 50%;
+    height: 50%;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+}
+
+.middleBottom {
+    height: 60%;
+    width: 90%;
+    background: white;
+    border-top: 0.5px solid black;
+    border-bottom: 0.1px solid black;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+
+.middleBottom ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.middleBottom ol li {
+    border: 0.5px solid black;
+    border-top: 0px;
+    list-style: none;
+    background: white;
+    display: inline-block;
+    width: 100%;
+}
+
+.middleBottom ol li:hover {
+    transform: scaleX(1.1);
+    background: rgba(233, 79, 79, 0.589);
+}
+
+/* -------------------------------- */
+/* Botones negros creados con after */
+/* -------------------------------- */
+.buttomBlack::after {
+    position: relative;
+    content: '';
+    z-index: 2;
+    border-top: 1px solid black;
+    background: black;
+    width: 63%;
+    height: 48%;
+    left: 75%;
+    top:0;
+    display: inline-block;
+    box-shadow: 0px 0px 1px 0px black;
+}
+
+footer {
+    background-color: rgba(255, 248, 248, 0.26);
+    display: inline-block;
+    height: 1.8vh;
+    width: 100%;
+    position: absolute;
+    top: 95.2vh;
+    padding: 1.5vh 0;
+    box-shadow: 0 -2px 8px -2px grey;
+    text-align: center;
+}
+
+/* footer span {
+    color: black;
+    font-size: 0.75em;
+    font-weight: 500;
+} */
+
+/* ------------------------------- */
+/* Botones negros creados con Html */
+/* ------------------------------- */
+
+/* 
+.do:hover, .re:hover, .fa:hover, .sol:hover, .la:hover {
+    transform: scale(1.05);
+}
+
+.do, .re, .fa, .sol, .la {
+    z-index: 2;
+    border-top: 1px solid black;
+    background: black;
+    width: 63%;
+    height: 48%;
+    position: relative;
+    left: 75%;
+    box-shadow: 0px 0px 1px 0px black;
+}
+
+#noBlackBottom {
+    border-top: 0px solid black;
+    background: none;
+    box-shadow: none;
+}
+
+ */
+
+
