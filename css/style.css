@@ -15,17 +15,6 @@ body {
     height: 95vh;
 }
 
-body > ol > li > button  {
-    border: 0.1px solid black;
-    height: 30px;
-    width: 50px;
-    background: white;
-    display: block;
-}
-body > ol > li > button:hover {
-    background: rgba(252, 123, 123, 0.397);
-}
-
 body h1:first-of-type {
     text-transform: capitalize;
     text-decoration: underline;
@@ -74,6 +63,15 @@ body h1:first-of-type {
     background: rgba(233, 79, 79, 0.589);
 }
 
+body > ol > li > button  {
+    border: 0.1px solid black;
+    height: 30px;
+    width: 50px;
+    display: block;
+}
+body > ol > li > button:hover {
+    background: rgba(252, 123, 123, 0.397);
+}
 
 /* -------------------------------- */
 /* Botones negros creados con after */
