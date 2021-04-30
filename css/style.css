@@ -1,3 +1,10 @@
+:root {
+    --contenedor-bkg-color:  rgb(14, 11, 11);
+    --footer-bkg-color:  rgba(255, 248, 248, 0.26);
+    --key-hover: #FF6666;
+    --body-bkg-img: url(../images/background_image_piano.jpg);
+}
+
 *, body, html, ::after, ::before {
     margin: 0;
     padding: 0;
@@ -8,7 +15,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/background_image_piano.jpg);
+    background-image: var(--body-bkg-img);
     background-position: inherit;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,7 +35,7 @@ body h1:first-of-type {
 .contenedor {
     position: relative;
     margin: auto;
-    background: rgb(24, 20, 20);
+    background: var(--contenedor-bkg-color);
     width: 55%;
     height: 50%;
     border-top-left-radius: 20%;
@@ -39,101 +46,59 @@ body h1:first-of-type {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background: white;
     height: 60%;
     width: 90%;
     border-top: 0.5px solid black;
-    border-bottom: 0.1px solid black;
     position: absolute;
-    top: 40%;
+    top: 40.5%;
     left: 5%;
 }
 
-.middleBottom button {
+.middleBottom li {
     position: relative;
     display: inline-block;
     background: white;
     width: 100%;
     border: 0.1px solid black;
     border-top: 0px;
+    border-bottom-left-radius: 4.5%;
+    border-bottom-right-radius: 4.5%;
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.76);
 }
 
-.middleBottom button:hover {
-/*     transform: scaleX(1.1); */
-    background: rgba(233, 79, 79, 0.589);
+.middleBottom li:hover {
+    background: var(--key-hover);
 }
 
-body > ol > li > button  {
-    border: 0.1px solid black;
-    height: 30px;
-    width: 50px;
-    display: block;
-}
-body > ol > li > button:hover {
-    background: rgba(252, 123, 123, 0.397);
-}
-
-/* -------------------------------- */
-/* Botones negros creados con after */
-/* -------------------------------- */
 .buttomBlack {
     display: inline-block;
     position: relative;
-    bottom: 25%;
-    left: 55%;
+    left: 70%;
     content: '';
     z-index: 2;
     border-top: 1px solid black;
     background: black;
     width: 63%;
     height: 48%;
-    box-shadow: 0px 0px 1px 0px black;
+    box-shadow: 4px 5px 1px 0px rgba(0, 0, 0, 0.596);
 }
 
 footer {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    background-color: rgba(255, 248, 248, 0.26);
+    background-color: var(--footer-bkg-color);
     height: 5vh;
     width: 100%;
     position: absolute;
     bottom: 0;
-    box-shadow: 0 -2px 8px -2px grey;
+    box-shadow: 0 -2px 8px -2px rgba(128, 128, 128, 0.753);
 }
 
 footer div {
     color: black;
-    font-size: 0.75em;
-    font-weight: 500;
+    font-size: 1em;
+    font-weight: 800;
+    padding-right: 1%;
 }
-
-/* ------------------------------- */
-/* Botones negros creados con Html */
-/* ------------------------------- */
-
-/* 
-.do:hover, .re:hover, .fa:hover, .sol:hover, .la:hover {
-    transform: scale(1.05);
-}
-
-.do, .re, .fa, .sol, .la {
-    z-index: 2;
-    border-top: 1px solid black;
-    background: black;
-    width: 63%;
-    height: 48%;
-    position: relative;
-    left: 75%;
-    box-shadow: 0px 0px 1px 0px black;
-}
-
-#noBlackBottom {
-    border-top: 0px solid black;
-    background: none;
-    box-shadow: none;
-}
-
- */
-
 

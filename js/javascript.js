@@ -5,9 +5,7 @@ console.log(`
 
 
 /* Selecciono los botones del teclado */
-var botones = document.querySelectorAll('button');
-console.log(`botones 01 ${botones}`);
-console.log(botones);
+var botones = document.querySelectorAll('li');
 
 /* Inicializado Notas_Musicales */
 let notas_musicales = []
@@ -17,27 +15,28 @@ const notas_cargadas = document.addEventListener('load',
 
 /* Teclado - Key(letra) vs Keycode(codigo numerico) */
 document.addEventListener('keypress', (e) => {
-    switch (e.key) {
+    const eKeyLowerCase = e.key.toLowerCase();
+    switch (eKeyLowerCase) {
         case 's':
-            reproducirNota(0);
+            presionarUnaTecla(0);
             break;
         case 'd':
-            reproducirNota(1);
+            presionarUnaTecla(1);
             break;
         case 'f':
-            reproducirNota(2);
+            presionarUnaTecla(2);
             break;
         case 'h':
-            reproducirNota(3);
+            presionarUnaTecla(3);
             break;
         case 'j':
-            reproducirNota(4);
+            presionarUnaTecla(4);
             break;
         case 'k':
-            reproducirNota(5);
+            presionarUnaTecla(5);
             break;
         case 'l':
-            reproducirNota(6);
+            presionarUnaTecla(6);
             break;
         default:
             break;
@@ -61,9 +60,6 @@ function cargarNotasMusicales(botones, notas_musicales) {
         }
 
     }
-    /*     const notas_cargadas = notas_musicales;
-        console.log(`notas cargadas ${notas_cargadas} con ${notas_musicales}`);
-        return notas_cargadas; */
     return notas_musicales;
 }
 
@@ -71,19 +67,28 @@ function cargarNotasMusicales(botones, notas_musicales) {
 botones.forEach(boton => boton.addEventListener('click', (e) => {
     console.dir(e.target.id);
     let index = traducirNotaAlIndex(e.target.id);
-    resaltarNotaEnTeclado(index);
-    reproducirNota(index);
-    opacarNotaEnTeclado(index);
+    presionarUnaTecla(index);
 })
 );
 
-function resaltarNotaEnTeclado(index) {
-    /* console.log(`Funcion resaltarNotaEnTeclado: ${index}`); */
+function presionarUnaTecla (index) {
+    resaltarNotaEnTeclado(index);
+    reproducirNota(index);
+    opacarNotaEnTeclado(index); 
+    botones[index].style.background = '';
+    botones[index].style.transition = '1s';      
+}
 
+function resaltarNotaEnTeclado(index) {
+    console.log(`resaltarNotaEnTeclado ${index}`)
+    botones[index].style.background = 'rgba(233, 79, 79, 1)';
+    botones[index].style.transition = '1s';
 }
 
 function opacarNotaEnTeclado(index) {
     /* console.log(`Funcion opacarNotaEnTeclado: ${index}`); */
+    botones[index].style.background = 'white';
+    botones[index].style.transition = '3s';
 }
 
 function traducirNotaAlIndex(notaMusical) {
@@ -136,13 +141,9 @@ function traducirNotaAlIndex(notaMusical) {
 }
 
 function reproducirNota(index) {
-    if (!notas_musicales[index].ended) {
-        notas_musicales[index].play();
-    }
     notas_musicales[index].currentTime = 0;
     notas_musicales[index].play();
     notas_musicales[index].autofocus = true;
-    console.log(notas_musicales[index].play());
 }
 
 
