@@ -18,16 +18,16 @@ function cargarNotasMusicales(keys, notas_musicales) {
         notas_musicales[index] = index;
 
         if (keys[index].id) {
-            
-            let audioElement= document.createElement("audio");
-            let audioPath   = `audio/${keys[index].id}.mp3`;
+
+            let audioElement = document.createElement("audio");
+            let audioPath = `audio/${keys[index].id}.mp3`;
             audioElement.setAttribute('src', audioPath);
 
-            notas_musicales[index]              = audioElement;
-            notas_musicales[index].id           = keys[index].id;
-            notas_musicales[index].currentTime  = 0;
-            notas_musicales[index].volume       = 1;
-            
+            notas_musicales[index] = audioElement;
+            notas_musicales[index].id = keys[index].id;
+            notas_musicales[index].currentTime = 0;
+            notas_musicales[index].volume = 1;
+
         }
 
     }
@@ -38,26 +38,47 @@ function cargarNotasMusicales(keys, notas_musicales) {
 document.addEventListener('keypress', (e) => {
     const eKeyLowerCase = e.key.toLowerCase();
     switch (eKeyLowerCase) {
-        case 's':
+        case 'a':
             presionarUnaTecla(0);
             break;
-        case 'd':
+        case 's':
             presionarUnaTecla(1);
             break;
-        case 'f':
+        case 'd':
             presionarUnaTecla(2);
             break;
-        case 'h':
+        case 'f':
             presionarUnaTecla(3);
             break;
-        case 'j':
+        case 'h':
             presionarUnaTecla(4);
             break;
-        case 'k':
+        case 'j':
             presionarUnaTecla(5);
             break;
-        case 'l':
+        case 'k':
             presionarUnaTecla(6);
+            break;
+        case 'q':
+            presionarUnaTecla(7);
+            break;
+        case 'w':
+            presionarUnaTecla(8);
+            break;
+        case 'e':
+            presionarUnaTecla(9);
+            break;
+        case 'r':
+            presionarUnaTecla(10);
+            break;
+        case 'y':
+            presionarUnaTecla(11);
+            break;
+        case 'u':
+            presionarUnaTecla(12);
+            break;
+        case 'i':
+            presionarUnaTecla(13);
             break;
         default:
             break;
@@ -76,46 +97,46 @@ keys.forEach(boton => boton.addEventListener('click', (e) => {
 /* FUNCIONES */
 function traducirNotaAlIndex(notaMusical) {
     switch (notaMusical) {
-        case 'do_00':
+        case 'c3':
             return 0;
             break;
-        case 're_00':
+        case 'd3':
             return 1;
             break;
-        case 'mi_00':
+        case 'e3':
             return 2;
             break;
-        case 'fa_00':
+        case 'f3':
             return 3;
             break;
-        case 'sol_00':
+        case 'g3':
             return 4;
             break;
-        case 'la_00':
+        case 'a3':
             return 5;
             break;
-        case 'si_00':
+        case 'b3':
             return 6;
             break;
-        case 'do_01':
+        case 'c4':
             return 7;
             break;
-        case 're_01':
+        case 'd4':
             return 8;
             break;
-        case 'mi_01':
+        case 'e4':
             return 9;
             break;
-        case 'fa_01':
+        case 'f4':
             return 10;
             break;
-        case 'sol_01':
+        case 'g4':
             return 11;
             break;
-        case 'la_01':
+        case 'a4':
             return 12;
             break;
-        case 'si_01':
+        case 'b4':
             return 13;
             break;
         default:
