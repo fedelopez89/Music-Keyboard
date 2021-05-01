@@ -3,27 +3,31 @@ console.log(`
 /*  I N I C I O 
 /* --------------`);
 
-/* Selecciono los botones del teclado */
-var botones = document.querySelectorAll('li');
+/* SELECCION TECLAS DEL TECLADO MUSICAL */
+var keys = document.querySelectorAll('li');
 
-/* Inicializado Notas_Musicales */
+/* INICIALIZACION DE Notas_Musicales */
 let notas_musicales = []
 const notas_cargadas = document.addEventListener('load',
-    cargarNotasMusicales(botones, notas_musicales)
+    cargarNotasMusicales(keys, notas_musicales)
 );
-function cargarNotasMusicales(botones, notas_musicales) {
+function cargarNotasMusicales(keys, notas_musicales) {
 
-    console.log(`on load`);
-    for (let index = 0; index < botones.length; index++) {
+    for (let index = 0; index < keys.length; index++) {
 
         notas_musicales[index] = index;
 
-        if (botones[index].id) {
-            let aux = document.createElement("audio");
-            let ruta = `audio/${botones[index].id}.mp3`;
-            aux.setAttribute('src', ruta);
-            notas_musicales[index] = aux;
-            notas_musicales[index].id = botones[index].id;
+        if (keys[index].id) {
+            
+            let audioElement= document.createElement("audio");
+            let audioPath   = `audio/${keys[index].id}.mp3`;
+            audioElement.setAttribute('src', audioPath);
+
+            notas_musicales[index]              = audioElement;
+            notas_musicales[index].id           = keys[index].id;
+            notas_musicales[index].currentTime  = 0;
+            notas_musicales[index].volume       = 1;
+            
         }
 
     }
@@ -62,13 +66,14 @@ document.addEventListener('keypress', (e) => {
 );
 
 /* EVENTO CLICK */
-botones.forEach(boton => boton.addEventListener('click', (e) => {
+keys.forEach(boton => boton.addEventListener('click', (e) => {
     /*     console.dir(e.target.id); */
     let index = traducirNotaAlIndex(e.target.id);
     presionarUnaTecla(index);
 })
 );
 
+/* FUNCIONES */
 function traducirNotaAlIndex(notaMusical) {
     switch (notaMusical) {
         case 'do_00':
@@ -138,13 +143,13 @@ function reproducirNota(index) {
 }
 
 function animacionEnTecla(index) {
-    botones[index].style.background = '#ec4f4f';
+    keys[index].style.background = '#ec4f4f';
 }
 
 function limpiarStyle(index) {
     setTimeout(() => {
-        botones[index].style.background = '';
-        botones[index].style.transition = '';
+        keys[index].style.background = '';
+        keys[index].style.transition = '';
     }, 300);
 }
 
