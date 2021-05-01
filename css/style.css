@@ -1,7 +1,7 @@
 :root {
     --contenedor-bkg-color:  rgb(14, 11, 11);
     --footer-bkg-color:  rgba(255, 248, 248, 0.26);
-    --key-hover: #FF6666;
+    --key-hover: #ff9494;
     --body-bkg-img: url(../images/background_image_piano.jpg);
 }
 
@@ -68,6 +68,7 @@ body h1:first-of-type {
 
 .middleBottom li:hover {
     background: var(--key-hover);
+    transition: 0s;
 }
 
 .buttomBlack {
@@ -96,7 +97,7 @@ footer {
 }
 
 footer div {
-    color: black;
+    color: rgba(0, 0, 0, 0.658);
     font-size: 1em;
     font-weight: 800;
     padding-right: 1%;
